@@ -1,28 +1,29 @@
-.card-movie {
+.card-bookmark {
+  width: 28em;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.card-movie > img {
+.card-bookmark > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-movie h2 {
+.card-bookmark h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-movie p {
+.card-bookmark p {
   font-size: 12px;
   opacity: 0.7;
   margin: 0;
 }
 
-.card-movie .card-movie-infos {
+.card-bookmark .card-bookmark-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -65,4 +66,14 @@
 
 .card-list .card-list-infos {
   padding: 16px;
+}
+
+.card-bookmark-infos a {
+  color: #c42911;
+  font-size: 14px;
+}
+
+.card-bookmark-infos .rating {
+  font-size: 16px;
+  color: #5f5f5f;
 }

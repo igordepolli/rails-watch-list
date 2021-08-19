@@ -1,0 +1,20 @@
+<div class="col-4 mx-5">
+  <div class="card-bookmark my-3">
+    <img src= <%= bookmark.movie.poster_url %> />
+    <div class="card-bookmark-infos">
+      <div class="movie-content">
+        <div class="movie-content-header d-flex align-items-start">
+          <h5><%= bookmark.movie.title %></h5>
+          <p class="mx-2 rating"> • <%= bookmark.movie.rating %> &#11088;</p>
+        </div>
+        <p><%= bookmark.movie.overview %></p>
+      </div>
+    </div>
+    <div class="card-bookmark-infos">
+      <div class="bookmark-comment">
+        <i class="material-icons">format_quote</i><%= bookmark.comment %>
+      </div>
+      <%= link_to 'delete', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+</div>
