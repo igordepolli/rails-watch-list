@@ -1,2 +1,19 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.cover_url %>);">
+  <div class="container">
+    <h1> <%= @list.name %> </h1>
+    <%= link_to "Add a movie", new_list_path, class: "btn btn-flat my-3" %>
+  </div>
+</div>
+
+<div class="container">
+
+  <% @list.movies.each do |movie| %>
+    <div class="card-movie my-3">
+      <img src= <%= movie.cover_url %> />
+      <div class="card-movie-infos">
+        <%= link_to movie.name, movie_path(movie) %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

@@ -9,16 +9,22 @@ class ListsController < ApplicationController
   end
 
   def new
-    # TODO
+    @list = List.new
   end
 
   def create
-    # TODO
+    @list = List.new(list_params)
+
+    if @list.save
+      redirect_to lists_path
+    else
+      render :new
+    end
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :cover_url)
   end
 end
