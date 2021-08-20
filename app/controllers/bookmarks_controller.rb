@@ -19,6 +19,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
+    redirect_to request.referrer
   end
 
   private
