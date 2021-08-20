@@ -11,4 +11,25 @@
       <%= render 'lists/card_bookmark', bookmark: bookmark %>
     <% end %>
   </div>
+  <hr>
+  <div class="reviews">
+    <div class="row">
+      <div class="show-reviews col-9">
+        <h4>Reviews</h4>
+        <% @list.reviews.each do |review| %>
+          <div class="stars d-flex">
+            <% review.stars.times do %>
+              <p>&#11088;</p>
+            <% end %>
+          </div>
+          <p><%= review.content %></p>
+          <hr>
+        <% end %>
+      </div>
+      <div class="add-review form col-3">
+        <h4>Add a review</h4>
+        <%= render 'form_review', list: @list, review: @review %>
+      </div>
+    </div>
+  </div>
 </div>
