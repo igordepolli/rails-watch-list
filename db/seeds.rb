@@ -1,19 +1,16 @@
-number_executions = 1
-10.times do
-  Movie.create(
-    title: Faker::Movie.title,
-    overview: Faker::Lorem.paragraph,
-    poster_url: "https://picsum.photos/841/1189?random=#{number_executions}",
-    rating: Faker::Number.between(from: 0.0, to: 10.0).round(2)
-  )
-  number_executions += 1
-end
+require 'open-uri'
+require 'json'
 
-number_executions = 1
-5.times do
-  List.create(
-    name: Faker::Games::Witcher.character,
-    cover_url: "https://picsum.photos/1200/500?random=#{number_executions}"
+url = 'http://tmdb.lewagon.com/movie/top_rated'
+response_serialized = URI.open(url).read
+response_json = JSON.parse(response_serialized)
+movies_hash = response_json['results'].first(10)
+
+movies_hash.each do |movie|
+  Movie.create(
+    title: movie['title'],
+    overview: movie['overview'],
+    poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}",
+    rating: movie['vote_average']
   )
-  number_executions += 1
 end

@@ -10,7 +10,9 @@
 
   <% @lists.each do |list| %>
     <div class="card-list my-3">
-      <img src= <%= list.cover_url %> />
+      <%# <% if list.photo.attached? %>
+      <%= cl_image_tag list.photo.key, crop: :fill if list.photo.attached? %>
+      <%# <% end %>
       <div class="card-list-infos">
         <%= link_to list.name, list_path(list) %>
       </div>
